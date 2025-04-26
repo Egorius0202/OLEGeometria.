@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 # Указываем токен (не забудьте заменить на ваш токен)
-bot = telebot.TeleBot('njrty')
+bot = telebot.TeleBot('7581318358:AAGk09DLgZrhh2VJkk6wweip7lBangSiyIc')  # Замените на ваш токен
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
@@ -67,7 +67,6 @@ def callback_worker(call):
     elif call.data == "triangle TY":
         bot.send_message(call.message.chat.id, "Это информация о тупоугольном треугольнике...")
 
-
     elif call.data == 'Circle':
         msg = "Сейчас я покажу, что я знаю о окружностях и кругах."
         keyboard = types.InlineKeyboardMarkup()
@@ -77,24 +76,74 @@ def callback_worker(call):
         key_Ok_Ok = types.InlineKeyboardButton(text='КРУГ', callback_data='Circle OK')
         keyboard.add(key_Ok_Ok)
         bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери окружность или круг:", reply_markup=keyboard)
+    elif call.data == "Circle Kr":
+        bot.send_message(call.message.chat.id, "Это информация о круге...")
+    elif call.data == "Circle OK":
+        bot.send_message(call.message.chat.id, "Это информация о окружности...")
 
-
-
-
-
-    elif call.data == 'Straight':
+    elif call.data == "Straight":
         msg = "Сейчас я покажу, что я знаю о прямых."
+
         keyboard = types.InlineKeyboardMarkup()
-
-        key_Pr_Pa = types.InlineKeyboardButton(text='паралельные', callback_data='Straight Pa')
+        key_Pr_Pa = types.InlineKeyboardButton(text='ПАРАЛЕЛЬНЫЕ', callback_data='Straight Pa')
         keyboard.add(key_Pr_Pa)
-        key_Pr_Pe = types.InlineKeyboardButton(text='перпендикулярные', callback_data='Straight Pe')
+        key_Pr_Pe = types.InlineKeyboardButton(text='ПЕРЕПЕНДЕКУЛЯРНЫЕ', callback_data='Straight Pe')
         keyboard.add(key_Pr_Pe)
-        key_Pr_Ps = types.InlineKeyboardButton(text='паралельные с секущей', callback_data='Straight Pas')
-        keyboard.add(key_Pr_Ps)
+        key_Pr_PP = types.InlineKeyboardButton(text='ПАРАЛЕЛЬНЫЕ И ПЕРПЕНДЕКУЛЯРНЫЕ', callback_data='Straight PP')
+        keyboard.add(key_Pr_PP)
+
         bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери тип прямой:", reply_markup=keyboard)
 
+    elif call.data == "Straight Pa":
+        bot.send_message(call.message.chat.id, "Это информация о паралельных прямых...")
+    elif call.data == "Straight Pe":
+        bot.send_message(call.message.chat.id, "Это информация о перпендекулярных прямых...")
+    elif call.data == "Straight PP":
+        bot.send_message(call.message.chat.id, "Это информация о парадельных и перпендекулярных прямых...")
 
+    elif call.data == "Corner":
+        msg = "Сейчас я покажу, что я знаю о углах."
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_Yg_Ve = types.InlineKeyboardButton(text='ВЕРТЕКАЛЬНЫЕ УГЛЫ', callback_data='Corner Ve')
+        keyboard.add(key_Yg_Ve)
+        key_Yg_Sm = types.InlineKeyboardButton(text='СМЕЖНЫЕ УГЛЫ', callback_data='Corner Sm')
+        keyboard.add(key_Yg_Sm)
+        key_Yg_Pe = types.InlineKeyboardButton(text='ДВЕ ПРЯМЫЕ И СЕКУЩАЯ', callback_data='Corner Pe')
+        keyboard.add(key_Yg_Pe)
+
+        bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери тип угла:", reply_markup=keyboard)
+
+    elif call.data == "Corner Ve":
+        bot.send_message(call.message.chat.id, "Это информация о вертикальных углах...")
+    elif call.data == "Corner Sm":
+        bot.send_message(call.message.chat.id, "Это информация о смежных углах...")
+    elif call.data == "Corner Pe":
+        bot.send_message(call.message.chat.id, "Это информация о пересечения двух прямых секущей...")
+
+    elif call.data == "Corner Pe":
+        msg = "Сейчас я покажу, что я знаю о пересечение двух прямых секущей."
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_Yg_Pe_So = types.InlineKeyboardButton(text='соответственные углы', callback_data='Corner So')
+        keyboard.add(key_Yg_Pe_So)
+        key_Yg_Pe_Na = types.InlineKeyboardButton(text='накрест лежащие углы', callback_data='Corner Na')
+        keyboard.add(key_Yg_Pe_Na)
+        key_Yg_Pe_Od = types.InlineKeyboardButton(text='Односторонние углы', callback_data='Corner Od')
+        keyboard.add(key_Yg_Pe_Od)
+
+        bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери тип угла:", reply_markup=keyboard)
+
+    elif call.data == "Corner So":
+        bot.send_message(call.message.chat.id, "Это информация о соответственных  углах...")
+    elif call.data == "Corner Na":
+        bot.send_message(call.message.chat.id, "Это информация о накрест лежащих углах...")
+    elif call.data == "Corner Od":
+        bot.send_message(call.message.chat.id, "Это информация о односторонних углах...")
 
         # Запускаем бота
-    bot.polling(none_stop=True)
+bot.polling(none_stop=True)
