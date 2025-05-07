@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 # Указываем токен (не забудьте заменить на ваш токен)
-bot = telebot.TeleBot('токен')  # Замените на ваш токен
+bot = telebot.TeleBot('7581318358:AAGk09DLgZrhh2VJkk6wweip7lBangSiyIc')  # Замените на ваш токен
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
@@ -124,9 +124,10 @@ def callback_worker(call):
     elif call.data == "Corner Pe":
         bot.send_message(call.message.chat.id, "Это информация о пересечения двух прямых секущей...")
 
-    elif call.data == "Corner Pe":
-        msg = "Сейчас я покажу, что я знаю о пересечение двух прямых секущей."
+    if call.data == "Corner Pe":
+        msg = "Сейчас я покажу, что я знаю о пересечении двух прямых секущей."
 
+        # Create an inline keyboard for angle types
         keyboard = types.InlineKeyboardMarkup()
         key_Yg_Pe_So = types.InlineKeyboardButton(text='соответственные углы', callback_data='Corner So')
         keyboard.add(key_Yg_Pe_So)
@@ -135,15 +136,116 @@ def callback_worker(call):
         key_Yg_Pe_Od = types.InlineKeyboardButton(text='Односторонние углы', callback_data='Corner Od')
         keyboard.add(key_Yg_Pe_Od)
 
+        # Send the initial message and the keyboard
         bot.send_message(call.message.chat.id, msg)
         bot.send_message(call.message.chat.id, "Выбери тип угла:", reply_markup=keyboard)
 
+
     elif call.data == "Corner So":
-        bot.send_message(call.message.chat.id, "Это информация о соответственных  углах...")
+        bot.send_message(call.message.chat.id, "Это информация о соответственных углах...")
     elif call.data == "Corner Na":
         bot.send_message(call.message.chat.id, "Это информация о накрест лежащих углах...")
     elif call.data == "Corner Od":
         bot.send_message(call.message.chat.id, "Это информация о односторонних углах...")
 
-        # Запускаем бота
+
+
+    elif call.data == "triangle PR":
+        msg = "Сейчас я покажу, что я знаю о прямоугольных треугольных."
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_Tri_Pr_B = types.InlineKeyboardButton(text='БИССИКТРИСА', callback_data='triangle PrB')
+        keyboard.add(key_Tri_Pr_B)
+        key_Tri_Pr_M = types.InlineKeyboardButton(text='МЕДИАНА', callback_data='triangle PrM')
+        keyboard.add(key_Tri_Pr_M)
+        key_Tri_Pr_V = types.InlineKeyboardButton(text='ВЫСОТА', callback_data='triangle PrV')
+        keyboard.add(key_Tri_Pr_V)
+        key_Tri_Pr_R = types.InlineKeyboardButton(text='ПРИЗНАКИ РАВЕНСТВА', callback_data='triangle PrR')
+        keyboard.add(key_Tri_Pr_R)
+        key_Tri_Pr_RB = types.InlineKeyboardButton(text='РАВНОБЕДРЕННОСТЬ', callback_data='triangle PrRB')
+        keyboard.add(key_Tri_Pr_RB)
+
+        bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о прямоугольном треугольнике:", reply_markup=keyboard)
+
+    elif call.data == "triangle PrB":
+        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  прямоугольном треугольнике...")
+    elif call.data == "triangle PrM":
+        bot.send_message(call.message.chat.id, "Это информация о медиане в прямоугольном треугольнике...")
+    elif call.data == "triangle PrV":
+        bot.send_message(call.message.chat.id, "Это информация о высоте в прямоугольном треугольнике...")
+    elif call.data == "triangle PrR":
+        bot.send_message(call.message.chat.id, "Это информация о равенстве прямоугольных треугольниках...")
+    elif call.data == "triangle PrRB":
+        bot.send_message(call.message.chat.id, "Это информация о равнобедренных прямоугольных треугольниках...")
+
+
+    elif call.data == "triangle OS":
+        msg = "Сейчас я покажу, что я знаю о прямоугольных треугольных."
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_Tri_OS_B = types.InlineKeyboardButton(text='БИССИКТРИСА', callback_data='triangle OSB')
+        keyboard.add(key_Tri_OS_B)
+        key_Tri_OS_M = types.InlineKeyboardButton(text='МЕДИАНА', callback_data='triangle OSM')
+        keyboard.add(key_Tri_OS_M)
+        key_Tri_OS_V = types.InlineKeyboardButton(text='ВЫСОТА', callback_data='triangle OSV')
+        keyboard.add(key_Tri_OS_V)
+        key_Tri_OS_R = types.InlineKeyboardButton(text='ПРИЗНАКИ РАВЕНСТВА', callback_data='triangle OSR')
+        keyboard.add(key_Tri_OS_R)
+        key_Tri_OS_RB = types.InlineKeyboardButton(text='РАВНОБЕДРЕННОСТЬ', callback_data='triangle OSRB')
+        keyboard.add(key_Tri_OS_RB)
+        key_Tri_OS_RS = types.InlineKeyboardButton(text='РАВНОСТОРОННОСТЬ', callback_data='triangle OSRS')
+        keyboard.add(key_Tri_OS_RS)
+
+        bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о остроугоьном  треугольнике:", reply_markup=keyboard)
+
+    elif call.data == "triangle OSB":
+        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  остроугоьном  треугольнике...")
+    elif call.data == "triangle OSM":
+        bot.send_message(call.message.chat.id, "Это информация о медиане в остроугоьном  треугольнике...")
+    elif call.data == "triangle OSV":
+        bot.send_message(call.message.chat.id, "Это информация о высоте в остроугоьном  треугольнике...")
+    elif call.data == "triangle OSR":
+        bot.send_message(call.message.chat.id, "Это информация о равенстве остроугоьных  треугольниках...")
+    elif call.data == "triangle OSRB":
+        bot.send_message(call.message.chat.id, "Это информация о равнобедренных остроугольных треугольниках...")
+    elif call.data == "triangle OSRS":
+        bot.send_message(call.message.chat.id, "Это информация о равносторонних остроугольных треугольниках...")
+
+
+
+    elif call.data == "triangle TY":
+        msg = "Сейчас я покажу, что я знаю о тупогольных треугольных."
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_Tri_TY_B = types.InlineKeyboardButton(text='БИССИКТРИСА', callback_data='triangle TYB')
+        keyboard.add(key_Tri_TY_B)
+        key_Tri_TY_M = types.InlineKeyboardButton(text='МЕДИАНА', callback_data='triangle TYM')
+        keyboard.add(key_Tri_TY_M)
+        key_Tri_TY_V = types.InlineKeyboardButton(text='ВЫСОТА', callback_data='triangle TYV')
+        keyboard.add(key_Tri_TY_V)
+        key_Tri_TY_R = types.InlineKeyboardButton(text='ПРИЗНАКИ РАВЕНСТВА', callback_data='triangle TYR')
+        keyboard.add(key_Tri_TY_R)
+        key_Tri_TY_RB = types.InlineKeyboardButton(text='РАВНОБЕДРЕННОСТЬ', callback_data='triangle TYRB')
+        keyboard.add(key_Tri_TY_RB)
+
+        bot.send_message(call.message.chat.id, msg)
+        bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о тупоугоьном  треугольнике:", reply_markup=keyboard)
+
+    elif call.data == "triangle TYB":
+        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  тупоугоьном треугольнике...")
+    elif call.data == "triangle TYM":
+        bot.send_message(call.message.chat.id, "Это информация о медиане в тупоугоьном треугольнике...")
+    elif call.data == "triangle TYV":
+        bot.send_message(call.message.chat.id, "Это информация о высоте в тупоугоьном  треугольнике...")
+    elif call.data == "triangle TYR":
+        bot.send_message(call.message.chat.id, "Это информация о равенстве тупоугоьных  треугольниках...")
+    elif call.data == "triangle TYRB":
+        bot.send_message(call.message.chat.id, "Это информация о тупоугольных равнобедренных треугольниках...")
+
+
+
+# Запускаем бота
+
 bot.polling(none_stop=True)
