@@ -42,9 +42,22 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери нужную фигуру:", reply_markup=keyboard)
 
     elif call.data == "Rectangle":
-        bot.send_message(call.message.chat.id, "Это информация о прямоугольнике...")
+        bot.send_message(call.message.chat.id, "Признаки прямоугольника:
+1. Если у выпуклого четырехугольника все углы прямые, то он является прямоугольником.
+2. Если у параллелограмма диагонали равны, то он является прямоугольником.
+Свойство прямоугольника:
+Диагонали прямоугольника равны.
+")
     elif call.data == "Square":
-        bot.send_message(call.message.chat.id, "Это информация о квадрате...")
+        bot.send_message(call.message.chat.id, "Свойства квадрата:
+1. Все стороны равны.
+2. Все углы прямые.
+3. Диагонали точкой пересечения делятся пополам.
+4. Диагонали равны.
+5. Диагонали взаимно перпендикулярны.
+6. Диагонали делят углы квадрата пополам.
+7. Диагональ квадрата со стороной a равна a√2.
+")
 
     elif call.data == "triangle":
         msg = "Сейчас я покажу, что я знаю о треугольниках."
@@ -78,9 +91,16 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, msg)
         bot.send_message(call.message.chat.id, "Выбери окружность или круг:", reply_markup=keyboard)
     elif call.data == "Circle Kr":
-        bot.send_message(call.message.chat.id, "Это информация о круге...")
+        bot.send_message(call.message.chat.id, "1.Круг — это фигура с наибольшей площадью при заданной длине периметра
+2. Окружность и радиус круга пропорциональны.
+3.Заключенная в нем площадь и квадрат его радиуса пропорциональны.
+4.Константы пропорциональности равны 2π и π соответственно.
+")
     elif call.data == "Circle OK":
-        bot.send_message(call.message.chat.id, "Это информация о окружности...")
+        bot.send_message(call.message.chat.id, "1.Теорема о пересечении хорд гласит, что если два хорда CD и EB пересекаются в точке A, то AC × AD = AB × AE.
+        2.Если две секущие AE и AD также пересекают окружность в точках B и C соответственно, то AC × AD = AB × AE (следствие из теоремы о длине хорды).
+        3.Угол между хордой и касательной в одной из её конечных точек равен половине угла, образованного в центре окружности, на противоположной стороне хорды (угол между касательной и хордой).
+        ")
 
     elif call.data == "Straight":
         msg = "Сейчас я покажу, что я знаю о прямых."
@@ -97,11 +117,12 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери тип прямой:", reply_markup=keyboard)
 
     elif call.data == "Straight Pa":
-        bot.send_message(call.message.chat.id, "Это информация о паралельных прямых...")
+        bot.send_message(call.message.chat.id, "1.Через любую точку, не лежащую на прямой, можно провести прямую, параллельную данной, и притом только одну.
+        2.Если прямая пересекает одну из параллельных прямых, то она пересекает и другую")
     elif call.data == "Straight Pe":
-        bot.send_message(call.message.chat.id, "Это информация о перпендекулярных прямых...")
-    elif call.data == "Straight PP":
-        bot.send_message(call.message.chat.id, "Это информация о парадельных и перпендекулярных прямых...")
+        bot.send_message(call.message.chat.id, "1.Две прямые на плоскости называются перпендикулярными, если при пересечении они образуют 4 прямых угла.
+        2.Две прямые в пространстве перпендикулярны друг другу, если они соответственно параллельны некоторым двум другим взаимно перпендикулярным прямым, лежащим в одной плоскости.")
+   
 
     elif call.data == "Corner":
         msg = "Сейчас я покажу, что я знаю о углах."
@@ -118,9 +139,9 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери тип угла:", reply_markup=keyboard)
 
     elif call.data == "Corner Ve":
-        bot.send_message(call.message.chat.id, "Это информация о вертикальных углах...")
+        bot.send_message(call.message.chat.id, "1. Вертикальные углы всегда равны друг другу.")
     elif call.data == "Corner Sm":
-        bot.send_message(call.message.chat.id, "Это информация о смежных углах...")
+        bot.send_message(call.message.chat.id, "1.сумма смежных углов равна 180 градусов")
     elif call.data == "Corner Pe":
         bot.send_message(call.message.chat.id, "Это информация о пересечения двух прямых секущей...")
 
@@ -142,11 +163,11 @@ def callback_worker(call):
 
 
     elif call.data == "Corner So":
-        bot.send_message(call.message.chat.id, "Это информация о соответственных углах...")
+        bot.send_message(call.message.chat.id, "Если две параллельные прямые пересечены секущей, то соответственные углы равны.")
     elif call.data == "Corner Na":
-        bot.send_message(call.message.chat.id, "Это информация о накрест лежащих углах...")
+        bot.send_message(call.message.chat.id, "Если две параллельные прямые пересечены секущей, то накрест лежащие углы равны.")
     elif call.data == "Corner Od":
-        bot.send_message(call.message.chat.id, "Это информация о односторонних углах...")
+        bot.send_message(call.message.chat.id, "Если две параллельные прямые пересечены секущей, то сумма односторонних углов равна 180 градусов.")
 
 
 
@@ -169,15 +190,20 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о прямоугольном треугольнике:", reply_markup=keyboard)
 
     elif call.data == "triangle PrB":
-        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  прямоугольном треугольнике...")
+        bot.send_message(call.message.chat.id, "биссиктриса в прямоугольном треугольнике делит угол на два равных")
     elif call.data == "triangle PrM":
-        bot.send_message(call.message.chat.id, "Это информация о медиане в прямоугольном треугольнике...")
+        bot.send_message(call.message.chat.id, "медиана проведенная к гипотенузе равна ее половине")
     elif call.data == "triangle PrV":
-        bot.send_message(call.message.chat.id, "Это информация о высоте в прямоугольном треугольнике...")
+        bot.send_message(call.message.chat.id, "1.Высота, опущенная на гипотенузу, является средним геометрическим (средним пропорциональным) двух отрезков гипотенузы.
+        2.Каждая сторона треугольника является средним пропорциональным между гипотенузой и отрезком гипотенузы, примыкающим к стороне.")
     elif call.data == "triangle PrR":
-        bot.send_message(call.message.chat.id, "Это информация о равенстве прямоугольных треугольниках...")
+        bot.send_message(call.message.chat.id, "1.если два катета одного прямоугольного треугольника соответственно равны двум катетам другого прямоугольного треугольника, то такие треугольники равны.
+        2. Если катет и прилежащий к нему острый угол одного прямоугольного треугольника соответственно равны катету и прилежащему острому углу другого прямоугольного треугольника, то такие треугольники равны.
+        3.если гипотенуза и прилежащий к ней угол одного прямоугольного треугольника соответственно равны гипотенузе и прилежащему углу другого треугольника, то такие треугольники равны.
+        4.Если катет и гипотенуза одного треугольника соответственно равны катету и гипотенузе другого треугольника, такие прямоугольные треугольники равны.
+        ")
     elif call.data == "triangle PrRB":
-        bot.send_message(call.message.chat.id, "Это информация о равнобедренных прямоугольных треугольниках...")
+        bot.send_message(call.message.chat.id, "Биссектриса, медиана, высота и серединный перпендикуляр, проведённые к основанию, совпадают между собой. ")
 
 
     elif call.data == "triangle OS":
@@ -201,17 +227,20 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о остроугоьном  треугольнике:", reply_markup=keyboard)
 
     elif call.data == "triangle OSB":
-        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  остроугоьном  треугольнике...")
+        bot.send_message(call.message.chat.id, "биссиктрисса делит угол на два равных")
     elif call.data == "triangle OSM":
-        bot.send_message(call.message.chat.id, "Это информация о медиане в остроугоьном  треугольнике...")
+        bot.send_message(call.message.chat.id, "медиана делит сторону пполам")
     elif call.data == "triangle OSV":
-        bot.send_message(call.message.chat.id, "Это информация о высоте в остроугоьном  треугольнике...")
+        bot.send_message(call.message.chat.id, "высота образует прямой угол")
     elif call.data == "triangle OSR":
-        bot.send_message(call.message.chat.id, "Это информация о равенстве остроугоьных  треугольниках...")
+        bot.send_message(call.message.chat.id, "1.Если две стороны и угол между ними одного треугольника равны соответственно двум сторонам и углу между ними другого треугольника, то такие треугольники равны.
+2.Если сторона и прилежащие к ней углы одного треугольника равны соответственно стороне и прилежащим к ней углам другого треугольника, то такие треугольники равны.
+3.Если три стороны одного треугольника равны трём сторонам другого треугольника, то такие треугольники равны.")
     elif call.data == "triangle OSRB":
-        bot.send_message(call.message.chat.id, "Это информация о равнобедренных остроугольных треугольниках...")
+        bot.send_message(call.message.chat.id, "Биссектриса, медиана, высота и серединный перпендикуляр, проведённые к основанию, совпадают между собой. ")
     elif call.data == "triangle OSRS":
-        bot.send_message(call.message.chat.id, "Это информация о равносторонних остроугольных треугольниках...")
+        bot.send_message(call.message.chat.id, "1.в равностороннем треугольнике все стороны равны
+2.в равносторонем треугольнике все углы равны 60 градусов")
 
 
 
@@ -234,15 +263,17 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, "Выбери что ты хочешь узнать о тупоугоьном  треугольнике:", reply_markup=keyboard)
 
     elif call.data == "triangle TYB":
-        bot.send_message(call.message.chat.id, "Это информация о биссиктрисе в  тупоугоьном треугольнике...")
+        bot.send_message(call.message.chat.id, "биссиктрисса делит угол на два равных")
     elif call.data == "triangle TYM":
-        bot.send_message(call.message.chat.id, "Это информация о медиане в тупоугоьном треугольнике...")
+        bot.send_message(call.message.chat.id, "медиана делит сторону пполам")
     elif call.data == "triangle TYV":
-        bot.send_message(call.message.chat.id, "Это информация о высоте в тупоугоьном  треугольнике...")
+        bot.send_message(call.message.chat.id, "высота в прямоугольном треугольнике проводится на продолжение стороны")
     elif call.data == "triangle TYR":
-        bot.send_message(call.message.chat.id, "Это информация о равенстве тупоугоьных  треугольниках...")
+        bot.send_message(call.message.chat.id, "1.Если две стороны и угол между ними одного треугольника равны соответственно двум сторонам и углу между ними другого треугольника, то такие треугольники равны.
+2.Если сторона и прилежащие к ней углы одного треугольника равны соответственно стороне и прилежащим к ней углам другого треугольника, то такие треугольники равны.
+3.Если три стороны одного треугольника равны трём сторонам другого треугольника, то такие треугольники равны.")
     elif call.data == "triangle TYRB":
-        bot.send_message(call.message.chat.id, "Это информация о тупоугольных равнобедренных треугольниках...")
+        bot.send_message(call.message.chat.id, "Биссектриса, медиана, высота и серединный перпендикуляр, проведённые к основанию, совпадают между собой.")
 
 
 
