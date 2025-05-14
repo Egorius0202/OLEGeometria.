@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 # Указываем токен (не забудьте заменить на ваш токен)
-bot = telebot.TeleBot('7581318358:AAGk09DLgZrhh2VJkk6wweip7lBangSiyIc')  # Замените на ваш токен
+bot = telebot.TeleBot('njrty')  # Замените на ваш токен
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
